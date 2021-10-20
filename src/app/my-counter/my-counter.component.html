@@ -6,15 +6,26 @@
       <ng-container class="clean-li card" *ngFor="let item of items">
         <p class="card-text" *ngIf="item.type === 'Shopping list'">
           {{ item.name }}
+          <span class="addCardBtn" (click)="update(item)"  
+          >update card </span>
+          <span class="addCardBtn" (click)="remove(item)"  
+          >remove </span>
           <span data-id="0" (click)="transferCard($event, 1, item.name)"
-            >></span
+          >></span
           >
         </p>
+        <form class="edit-form"  *ngIf="showEditForm && item.active && item.type === 'Shopping list'" >
+          <input type="text" [(ngModel)]="item.name" name="name" />
+          <button (click)="updateItem(item)">update</button>
+        </form>
       </ng-container>
     </div>
     <span class="addCardBtn" (click)="addCard('Shopping list')"
       >+Add a card</span
     >
+
+
+
   </div>
   <div class="column ">
     <div class="header-b">Home-work</div>
@@ -25,6 +36,10 @@
             ><</span
           >
           {{ item.name }}
+          <span class="addCardBtn" (click)="update(item)"  
+          >update card </span>
+          <span class="addCardBtn" (click)="remove(item)"  
+          >remove </span>
           <span
             class="right-arrow"
             data-id="1"
@@ -32,6 +47,10 @@
             >></span
           >
         </p>
+        <form class="edit-form" *ngIf="showEditForm && item.active  && item.type === 'Home-work'" >
+          <input type="text" [(ngModel)]="item.name" name="name" />
+          <button (click)="updateItem(item)">update</button>
+        </form>
       </ng-container>
     </div>
     <span class="addCardBtn" (click)="addCard('Home-work')">+Add a card</span>
@@ -45,6 +64,10 @@
             ><</span
           >
           {{ item.name }}
+          <span class="addCardBtn" (click)="update(item)"  
+          >update card </span>
+          <span class="addCardBtn" (click)="remove(item)"  
+          >remove </span>
           <span
             data-id="2"
             class="right-arrow"
@@ -52,6 +75,10 @@
             >></span
           >
         </p>
+        <form class="edit-form" *ngIf=" showEditForm && item.active && item.type === 'Finance' " >
+          <input type="text" [(ngModel)]="item.name" name="name" />
+          <button (click)="updateItem(item)">update</button>
+        </form>
       </ng-container>
     </div>
     <span class="addCardBtn" (click)="addCard('Finance')">+Add a card</span>
@@ -65,7 +92,15 @@
             ><</span
           >
           {{ item.name }}
+          <span class="addCardBtn" (click)="update(item)"  
+          >update card </span>
+          <span class="addCardBtn" (click)="remove(item)"  
+          >remove </span>
         </p>
+        <form class="edit-form" *ngIf="showEditForm && item.active && item.type === 'others'" >
+          <input type="text" [(ngModel)]="item.name" name="name" />
+          <button (click)="updateItem(item)">update</button>
+        </form>
       </ng-container>
     </div>
     <span class="addCardBtn" (click)="addCard('others')">+Add a card</span>

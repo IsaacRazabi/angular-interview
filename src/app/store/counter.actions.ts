@@ -1,4 +1,5 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
-export const increment = createAction('[Counter Component] Increment');
-export const decrement = createAction('[Counter Component] Decrement');
+export const update = createAction('[Counter Component] update',  props<{ name: string}>());
+export const query = createAction('[Counter Component] query');
+export const remove = createAction('remove',props<{ name: string}>());
