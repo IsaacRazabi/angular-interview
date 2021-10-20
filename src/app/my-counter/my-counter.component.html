@@ -1,0 +1,75 @@
+<app-example-binding [items]="items"></app-example-binding>
+<div class="columns-container flex">
+  <div class="column ">
+    <div class="header-a">Shopping list</div>
+    <div class="card-container">
+      <ng-container class="clean-li card" *ngFor="let item of items">
+        <p class="card-text" *ngIf="item.type === 'Shopping list'">
+          {{ item.name }}
+          <span data-id="0" (click)="transferCard($event, 1, item.name)"
+            >></span
+          >
+        </p>
+      </ng-container>
+    </div>
+    <span class="addCardBtn" (click)="addCard('Shopping list')"
+      >+Add a card</span
+    >
+  </div>
+  <div class="column ">
+    <div class="header-b">Home-work</div>
+    <div class="card-container">
+      <ng-container class="clean-li card" *ngFor="let item of items">
+        <p class="card-middle-text" *ngIf="item.type === 'Home-work'">
+          <span data-id="1" (click)="transferCard($event, -1, item.name)"
+            ><</span
+          >
+          {{ item.name }}
+          <span
+            class="right-arrow"
+            data-id="1"
+            (click)="transferCard($event, 1, item.name)"
+            >></span
+          >
+        </p>
+      </ng-container>
+    </div>
+    <span class="addCardBtn" (click)="addCard('Home-work')">+Add a card</span>
+  </div>
+  <div class="column">
+    <div class="header-c">Finance</div>
+    <div class="card-container">
+      <ng-container class="clean-li card" *ngFor="let item of items">
+        <p class="card-middle-text" *ngIf="item.type === 'Finance'">
+          <span data-id="2" (click)="transferCard($event, -1, item.name)"
+            ><</span
+          >
+          {{ item.name }}
+          <span
+            data-id="2"
+            class="right-arrow"
+            (click)="transferCard($event, 1, item.name)"
+            >></span
+          >
+        </p>
+      </ng-container>
+    </div>
+    <span class="addCardBtn" (click)="addCard('Finance')">+Add a card</span>
+  </div>
+  <div class="column ">
+    <div class="header-d">Others</div>
+    <div class="card-container">
+      <ng-container class="clean-li card" *ngFor="let item of items">
+        <p class="card-text" *ngIf="item.type === 'others'">
+          <span data-id="3" (click)="transferCard($event, -1, item.name)"
+            ><</span
+          >
+          {{ item.name }}
+        </p>
+      </ng-container>
+    </div>
+    <span class="addCardBtn" (click)="addCard('others')">+Add a card</span>
+  </div>
+ 
+
+</div>
